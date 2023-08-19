@@ -49,9 +49,9 @@ html {
   --green-dark: #0f5132;
 
   /* fonts  */
-  --headingFont: 'Roboto', sans-serif;
-  --bodyFont: 'Nunito', sans-serif;
-  --bodyFont2: 'Inter', sans-serif;
+  --headingFont: 'Roboto', imagens-serif;
+  --bodyFont: 'Nunito', imagens-serif;
+  --bodyFont2: 'Inter', imagens-serif;
   --smallText: 0.7em;
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
@@ -362,9 +362,6 @@ Navbar
 
 
 
-
-
-
 /* Media query - desktop layout */
 
 @media screen and (min-width: 992px) {
@@ -385,7 +382,7 @@ Navbar
 
   .navbar {
     height: 12rem;
-    ;
+    
   }
 
   svg,
@@ -493,16 +490,27 @@ Page
   width: 100%;
   display: flex;
   margin: 0 0 .6em 0;
-
+  transition: 250ms ease-out;
+  opacity: 0;
+  transform: scale(0.1);
 }
+
+.image.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 
 .image img {
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
   cursor: pointer;
-  transition: .2s ease-in-out;
+
 }
+
+
 
 /*
 =============== 
