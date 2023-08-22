@@ -2,7 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /* outline: 2px solid white; */
+  outline: 2px solid white;
 }
 
 /* fonts */
@@ -385,6 +385,7 @@ Navbar
     
   }
 
+/* Logo & logo hover */
   svg,
   .cls-1 {
     height: 100%;
@@ -444,12 +445,13 @@ Navbar
     height: 2rem;
     margin: 0 2.5rem;
     display: flex;
-
+    
   }
 
   .nav-link i {
     transition: 0.2s linear all;
     font-size: 2rem;
+   
   }
 
   .nav-link:hover {
