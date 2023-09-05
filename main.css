@@ -2,7 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /* outline: 2px solid white; */
+  outline: 2px solid white;
 }
 
 /* fonts */
@@ -483,17 +483,30 @@ Page
 
 }
 
+
 .container {
-  column-count: 2;
+  column-count: 3;
   column-gap: 0.6em;
+  
 }
+
+
 
 .image {
   background-color: black;
   width: 100%;
+  min-width:50%;
+  min-height: 300px;
   display: flex;
   margin: 0 0 .6em 0;
+  transition: 1s ease-out;
+  opacity: 0;
+  transform: scale(0.1);
+}
 
+.image.show {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .image img {
@@ -561,6 +574,12 @@ Hero
   font-size: 4rem;
   color: var(--white);
   text-align: center;
+}
+
+.large{
+width: 90vw;
+z-index: 1;
+overflow: hidden;
 }
 
 
