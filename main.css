@@ -49,9 +49,9 @@ html {
   --green-dark: #0f5132;
 
   /* fonts  */
-  --headingFont: 'Roboto', imagens-serif;
-  --bodyFont: 'Nunito', imagens-serif;
-  --bodyFont2: 'Inter', imagens-serif;
+  --headingFont: 'Roboto', sans-serif;
+  --bodyFont: 'Nunito', sans-serif;
+  --bodyFont2: 'Inter', sans-serif;
   --smallText: 0.7em;
   /* rest of the vars */
   --backgroundColor: var(--grey-50);
@@ -362,6 +362,9 @@ Navbar
 
 
 
+
+
+
 /* Media query - desktop layout */
 
 @media screen and (min-width: 992px) {
@@ -382,10 +385,9 @@ Navbar
 
   .navbar {
     height: 12rem;
-    
+    ;
   }
 
-/* Logo & logo hover */
   svg,
   .cls-1 {
     height: 100%;
@@ -445,13 +447,12 @@ Navbar
     height: 2rem;
     margin: 0 2.5rem;
     display: flex;
-    
+
   }
 
   .nav-link i {
     transition: 0.2s linear all;
     font-size: 2rem;
-   
   }
 
   .nav-link:hover {
@@ -482,17 +483,23 @@ Page
 
 }
 
+
 .container {
-  column-count: 2;
+  column-count: 3;
   column-gap: 0.6em;
+  
 }
+
+
 
 .image {
   background-color: black;
   width: 100%;
+  min-width:50%;
+  min-height: 300px;
   display: flex;
   margin: 0 0 .6em 0;
-  transition: 250ms ease-out;
+  transition: 1s ease-out;
   opacity: 0;
   transform: scale(0.1);
 }
@@ -502,17 +509,13 @@ Page
   transform: scale(1);
 }
 
-
-
 .image img {
   width: 100%;
   object-fit: cover;
   object-position: 50% 50%;
   cursor: pointer;
-
+  transition: .2s ease-in-out;
 }
-
-
 
 /*
 =============== 
@@ -571,6 +574,12 @@ Hero
   font-size: 4rem;
   color: var(--white);
   text-align: center;
+}
+
+.large{
+width: 90vw;
+z-index: 1;
+overflow: hidden;
 }
 
 
