@@ -42,7 +42,7 @@ images2 = [...images2];
     for(let i = 0; i< images2.length ;i++){
         images2[i].addEventListener("click",function (){
 
-            images2[i].classList.toggle("large");
+            // images2[i].classList.toggle("large");
            
         });
     }
