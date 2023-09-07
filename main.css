@@ -482,16 +482,17 @@ Page
   min-height: calc(100vh - (12rem + 4rem));
   display: flex;
   flex-direction: row;
-  column-gap: 5px;
+  column-gap: 10px;
 
 }
 
 
 .container {
- /* outline: 2px solid red; */
+/* outline: 2px solid red; */
 display: flex;
-row-gap: 5px;
-flex-direction: column;  
+row-gap: 10px;
+flex-direction: column; 
+min-width: 33.3%; 
 }
 
 
