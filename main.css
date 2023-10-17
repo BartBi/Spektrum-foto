@@ -2,7 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /* outline: 2px solid white; */
+  /* outline: 1px solid white; */
 }
 
 /* fonts */
@@ -483,43 +483,39 @@ Page
   display: flex;
   flex-direction: row;
   column-gap: 10px;
-
 }
-
 
 .container {
-/* outline: 2px solid red; */
-display: flex;
-row-gap: 10px;
-flex-direction: column; 
-min-width: 33.3%; 
+  /* outline: 2px solid red; */
+  display: flex;
+  row-gap: 10px;
+  flex-direction: column;
+  min-width: 33.3%;
+  padding: 0;
 }
-
-
 
 .image {
   background-color: black;
   width: 100%;
-  min-width:50%;
-  min-height: 300px;
+  min-width: 50%;
+  /* min-height: 300px; */
+  max-height: 80vh;
   display: flex;
-  /* margin: 0 0 .6em 0; */
-  transition: 1s ease-out;
+  transition: all 2s ease-out;
   opacity: 0;
-  transform: scale(0.1);
 }
 
 .image.show {
   opacity: 1;
-  transform: scale(1);
 }
 
 .image img {
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  /* object-fit:cover; */
   object-position: 50% 50%;
   cursor: pointer;
-  transition: .2s ease-in-out;
+
 }
 
 /*
@@ -543,7 +539,10 @@ Footer
 
 .page-footer a,
 .footer-logo {
-  color: var(--primary-500);
+  color: rgb(121, 116, 116);
+  font-weight: bold;
+  font-size: ;
+
 }
 
 
@@ -574,23 +573,59 @@ Hero
   justify-content: center;
 }
 
-
 .hero-text {
   font-size: 4rem;
   color: var(--white);
   text-align: center;
 }
 
-.large{
-width: 90vw;
-z-index: 1;
-overflow: hidden;
-}
-
 
 
 /*
 =============== 
-
+Slider
 ===============
 */
+
+.sliderImg {
+  position: relative;
+  display: block;
+  max-height: 100%;
+  /* color: var(--grey-400); */
+
+}
+
+.sliderImg .prev,.next {
+  position: absolute;
+  display: block;
+  font-weight: 100;
+  font-size: 50px;
+  user-select: none;
+  padding: 5px;
+  width:fit-content;
+  /* outline: 2px solid yellow; */
+  background-color: transparent;  
+}
+
+/* .sliderImg:hover{
+  color: white;
+  cursor: pointer;
+} */
+
+.next {
+  right:-5%;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.next:hover{
+  color: white;
+}
+
+.prev {
+  top:50%;
+  /* outline: 2px solid red; */
+  left: -5%;
+  transform: translateY(-50%);
+  color: var(--grey-500);
+}
