@@ -92,16 +92,24 @@ for (let i = 0; i < images.length; i++) {
         
         b = i++
         
+        let currentImg = images[i].children[0];
+         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
+        currentImg.src = test1;
+        slider.replaceChild(images[i],images[b]);
+       
+    })
+
+    sliderPrev.addEventListener("click", function () {
+        
+        b = i--
         
         let currentImg = images[i].children[0];
          test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
         slider.replaceChild(images[i],images[b]);
        
-
-
     })
-
+    
     images[i].addEventListener("click", sliderComponent);
 
 

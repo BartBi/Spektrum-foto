@@ -607,20 +607,19 @@ Slider
   background-color: transparent;  
 }
 
-/* .sliderImg:hover{
+.sliderImg:hover{
   color: white;
   cursor: pointer;
-} */
+}
 
 .next {
   right:-5%;
   top:50%;
   transform: translateY(-50%);
+  transition: 0.25s linear all;
 }
 
-.next:hover{
-  color: white;
-}
+
 
 .prev {
   top:50%;
@@ -628,4 +627,9 @@ Slider
   left: -5%;
   transform: translateY(-50%);
   color: var(--grey-500);
+  transition: 0.25s linear all;
+}
+
+.prev,.next:hover{
+  color: white;
 }
