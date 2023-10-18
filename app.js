@@ -13,7 +13,6 @@ const currentYear = new Date().getFullYear();
 date.innerHTML = currentYear;
 
 let images = document.querySelectorAll(".image");
-images = [...images] //making array from "nodes array" 
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -25,6 +24,7 @@ const observer = new IntersectionObserver(entries => {
     });
 },
     {
+        
         threshold: 0,
         rootMargin: '0px',
     }
@@ -37,7 +37,7 @@ images.forEach(image => {
 
 
 let page = document.querySelectorAll(".container");//container selected 
-console.log(page)
+// console.log(page)
 let mainPage = document.querySelector(".page");
 
 // let slider = document.querySelector(".sliderImg");
@@ -80,7 +80,7 @@ for (let i = 0; i < images.length; i++) {
         currentImg = images[i].children[0];
         let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
-        images[b].removeEventListener("click", sliderComponent);
+        // images[b].removeEventListener("click", sliderComponent);
         //remove add event lister for image click
         images[i].removeEventListener("click", sliderComponent);
         
