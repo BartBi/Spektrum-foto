@@ -512,7 +512,6 @@ Page
 
 .image img {
   width: 100%;
-  display: none;
   object-fit: contain;
   object-fit:cover;
   object-position: 50% 50%;
