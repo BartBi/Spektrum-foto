@@ -499,7 +499,7 @@ Page
   background-color: black;
   width: 100%;
   min-width: 50%;
-  min-height:100%;
+  min-height:300px;
   display: flex;
   transition: all 2s ease-out;
   opacity: 0;
@@ -514,7 +514,7 @@ Page
   width: 100%;
   display: none;
   object-fit: contain;
-  /* object-fit:cover; */
+  object-fit:cover;
   object-position: 50% 50%;
   cursor: pointer;
 
