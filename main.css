@@ -499,9 +499,11 @@ Page
   background-color: black;
   width: 100%;
   min-width: 50%;
+  min-height:100%;
   display: flex;
   transition: all 2s ease-out;
   opacity: 0;
+  outline:4px solid red;
 }
 
 .image.show {
@@ -510,6 +512,7 @@ Page
 
 .image img {
   width: 100%;
+  display: none;
   object-fit: contain;
   /* object-fit:cover; */
   object-position: 50% 50%;
