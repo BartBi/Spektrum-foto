@@ -2,7 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  outline: 1px solid white;
+  /* outline: 1px solid white; */
 }
 
 /* fonts */
@@ -503,7 +503,7 @@ Page
   display: flex;
   transition: all 2s ease-out;
   opacity: 0;
-  outline:4px solid red;
+  /* outline:4px solid red; */
 }
 
 .image.show {
