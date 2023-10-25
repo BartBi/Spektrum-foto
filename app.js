@@ -13,7 +13,8 @@ const currentYear = new Date().getFullYear();
 date.innerHTML = currentYear;
 
 let images = document.querySelectorAll(".image");
-
+// Images load
+const $image = $(".image").imagesLoaded(() => {
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         entry.target.classList.toggle("show", entry.isIntersecting);
@@ -33,7 +34,7 @@ const observer = new IntersectionObserver(entries => {
 images.forEach(image => {
     observer.observe(image);
 });
-
+})
 
 
 let page = document.querySelectorAll(".container");//container selected 
