@@ -61,7 +61,12 @@ for (let i = 0; i < images.length; i++) {
     
     function sliderComponent(e) {
         page.forEach(j => j.style.display = 'none') // disable grid display
-        
+        // images[i].classList.remove('show');
+        // if(images[i].children[0].complete == true){
+        //     images[i].children[0].classList.add("show");
+        // }
+        const image = $(".image").imagesLoaded(() => {});
+
         slider.classList.add("sliderImg"); // add classlist for slider container 
         mainPage.append(slider); // appen slider container 
         
@@ -82,7 +87,7 @@ for (let i = 0; i < images.length; i++) {
         currentImg = images[i].children[0];
         let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
-        currentImg.loading = "lazy";
+        
         // images[b].removeEventListener("click", sliderComponent);
         //remove add event lister for image click
         images[i].removeEventListener("click", sliderComponent);
