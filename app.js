@@ -58,18 +58,18 @@ for (let i = 0; i < images.length; i++) {
     let slider = document.createElement("div"); // create slider container
     sliderPrev = document.createElement("a"); // create prev button container
     
+    function viewImg(){
+     if(images[i].children[0].complete){
+        images[i].classList.add("show");
+     }
+    }
     
     function sliderComponent(e) {
         page.forEach(j => j.style.display = 'none') // disable grid display
-        // images[i].classList.remove('show');
-        // if(images[i].children[0].complete == true){
-        //     images[i].children[0].classList.add("show");
-        // }
-        const image = $(".image").imagesLoaded(() => {});
-
-        slider.classList.add("sliderImg"); // add classlist for slider container 
-        mainPage.append(slider); // appen slider container 
+        images[i].classList.remove('show');
         
+        slider.classList.add("sliderImg"); // add classlist for slider container 
+        mainPage.append(slider); // appen slider container     
         
         sliderPrev.classList.add("prev"); // add classlist for prev button
         sliderPrev.innerHTML = "&#10094;" // add deicamlCode for prev butoon 
@@ -77,7 +77,7 @@ for (let i = 0; i < images.length; i++) {
         sliderPrev.style.color
         slider.append(sliderPrev); // append prevbutton
         slider.append(images[i]); // append current image container
-
+        
         sliderNext.classList.add("next"); // add classlist for prev button
         sliderNext.innerHTML = "&#10095;"
         sliderNext.style.color = "var(--grey-400)";
@@ -88,24 +88,34 @@ for (let i = 0; i < images.length; i++) {
         let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
         
-        // images[b].removeEventListener("click", sliderComponent);
+        setInterval(viewImg,500);
+   
+        
+
         //remove add event lister for image click
         images[i].removeEventListener("click", sliderComponent);
-        
         //change current image 
+        console.log(slider.children[1]);
         
     }
-    
+    images[i].classList.remove('show');
+
     // slider Next
     sliderNext.addEventListener("click", function () {
         
-        b = i++
-        
+        i++
+        console.log(i)
         let currentImg = images[i].children[0];
+        console.log(currentImg)
         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
-        slider.replaceChild(images[i],images[b]);
+       console.log(slider.children[1]);
+        slider.children[1].replaceWith(images[i]);
         console.log(images[i].children[0].src)
+        currentImg.src = test1;
+        images[i].classList.remove('show');
+        setInterval(viewImg,500);
+        
     })
     
     // slider Prev
