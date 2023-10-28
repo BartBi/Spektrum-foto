@@ -2,7 +2,6 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /* outline: 1px solid white; */
 }
 
 /* fonts */
@@ -484,6 +483,7 @@ Page
   display: flex;
   flex-direction: row;
   column-gap: 10px;
+  outline:2px solid red;
 }
 
 .container {
@@ -493,6 +493,7 @@ Page
   flex-direction: column;
   min-width: 33.3%;
   padding: 0;
+  max-width: 100%;
 }
 
 .image {
@@ -593,8 +594,14 @@ Slider
   display: block;
   max-height: 100%;
   /* color: var(--grey-400); */
+  /* outline:2px solid green; */
 
 }
+
+/* .sliderImg .image{
+  height: 50vh;
+  width: auto;
+} */
 
 .sliderImg .prev,.next {
   position: absolute;

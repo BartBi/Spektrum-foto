@@ -2,19 +2,23 @@ const navLinks = document.querySelector(".nav-links");
 
 const navBtn = document.querySelector(".nav-btn");
 
+//   Menu button - Mobile layut 
 navBtn.addEventListener("click", () => {
     navLinks.classList.toggle("show-links");
-
 });
 
+
+// Current date set
 const date = document.getElementById("date");
 const currentYear = new Date().getFullYear();
-
 date.innerHTML = currentYear;
 
+// Select div containers for image
 let images = document.querySelectorAll(".image");
-// Images load
-const $image = $(".image").imagesLoaded(() => {
+
+
+// Images load plugin (with QueryJs) => Intersection observer 
+const image = $(".image").imagesLoaded(() => {
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         entry.target.classList.toggle("show", entry.isIntersecting);
@@ -36,17 +40,14 @@ images.forEach(image => {
 });
 })
 
+//container selected (each islotated column of grid)
+let page = document.querySelectorAll(".container");
 
-let page = document.querySelectorAll(".container");//container selected 
-// console.log(page)
+// page selected - container for whole grid
 let mainPage = document.querySelector(".page");
 
-// let slider = document.querySelector(".sliderImg");
-
+//  literally img by type selected 
 let img = document.querySelectorAll('img');
-
-page = [...page];   // making array from "nodes array"
-
 
 
 for (let i = 0; i < images.length; i++) {
@@ -89,17 +90,19 @@ for (let i = 0; i < images.length; i++) {
         
     }
     
+// slider Next
     sliderNext.addEventListener("click", function () {
         
         b = i++
         
         let currentImg = images[i].children[0];
-         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
+        test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
         slider.replaceChild(images[i],images[b]);
-       
+        console.log(images[i].children[0].src)
     })
 
+// slider Prev
     sliderPrev.addEventListener("click", function () {
         
         b = i--
@@ -111,11 +114,12 @@ for (let i = 0; i < images.length; i++) {
        
     })
     
-    images[i].addEventListener("click", sliderComponent);
 
-
-
-
+    const image = $(".image").imagesLoaded(() => {
+    
+    images[i].addEventListener("click", sliderComponent);})
+ 
+    
 }
 
 
