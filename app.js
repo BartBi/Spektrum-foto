@@ -65,7 +65,12 @@ for (let i = 0; i < images.length; i++) {
     }
     
     function sliderComponent(e) {
+        images.forEach(a => {
+            if(a.classList !== "image show"){
+            a.classList.add("show");
+        }})
         page.forEach(j => j.style.display = 'none') // disable grid display
+        
         images[i].classList.remove('show');
         
         slider.classList.add("sliderImg"); // add classlist for slider container 
@@ -89,13 +94,10 @@ for (let i = 0; i < images.length; i++) {
         currentImg.src = test1;
         
         setInterval(viewImg,500);
-   
         
-
         //remove add event lister for image click
         images[i].removeEventListener("click", sliderComponent);
         //change current image 
-        console.log(slider.children[1]);
         
     }
     images[i].classList.remove('show');
@@ -104,15 +106,10 @@ for (let i = 0; i < images.length; i++) {
     sliderNext.addEventListener("click", function () {
         
         i++
-        console.log(i)
         let currentImg = images[i].children[0];
-        console.log("----")
-        console.log(currentImg)
         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
-       console.log(slider.children[1]);
-        slider.children[1].replaceWith(images[i]);
-        console.log(images[i].children[0].src)
+        slider.children[1] = images[i];
         currentImg.src = test1;
         images[i].classList.remove('show');
         setInterval(viewImg,500);
