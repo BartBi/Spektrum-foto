@@ -57,7 +57,7 @@ for (let i = 0; i < images.length; i++) {
     sliderNext = document.createElement("a"); // create prev button container
     let slider = document.createElement("div"); // create slider container
     sliderPrev = document.createElement("a"); // create prev button container
-    let b
+    
     
     function sliderComponent(e) {
         page.forEach(j => j.style.display = 'none') // disable grid display
@@ -72,6 +72,7 @@ for (let i = 0; i < images.length; i++) {
         sliderPrev.style.color
         slider.append(sliderPrev); // append prevbutton
         slider.append(images[i]); // append current image container
+
         sliderNext.classList.add("next"); // add classlist for prev button
         sliderNext.innerHTML = "&#10095;"
         sliderNext.style.color = "var(--grey-400)";
@@ -81,6 +82,7 @@ for (let i = 0; i < images.length; i++) {
         currentImg = images[i].children[0];
         let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
+        currentImg.loading = "lazy";
         // images[b].removeEventListener("click", sliderComponent);
         //remove add event lister for image click
         images[i].removeEventListener("click", sliderComponent);
