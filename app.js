@@ -106,6 +106,7 @@ for (let i = 0; i < images.length; i++) {
         i++
         console.log(i)
         let currentImg = images[i].children[0];
+        console.log("----")
         console.log(currentImg)
         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;

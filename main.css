@@ -483,7 +483,7 @@ Page
   display: flex;
   flex-direction: row;
   column-gap: 10px;
-  outline:5px solid rgb(61, 40, 182);
+  outline:5px solid rgb(235, 9, 9);
 }
 
 .container {
