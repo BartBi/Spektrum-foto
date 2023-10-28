@@ -38,7 +38,6 @@ const observer = new IntersectionObserver(entries => {
 images.forEach(image => {
     observer.observe(image);
 });
-})
 
 //container selected (each islotated column of grid)
 let page = document.querySelectorAll(".container");
@@ -51,7 +50,7 @@ let img = document.querySelectorAll('img');
 
 
 for (let i = 0; i < images.length; i++) {
-
+    
     let currentImg;
     let sliderPrev;
     let sliderNext;
@@ -59,13 +58,13 @@ for (let i = 0; i < images.length; i++) {
     let slider = document.createElement("div"); // create slider container
     sliderPrev = document.createElement("a"); // create prev button container
     let b
-
+    
     function sliderComponent(e) {
         page.forEach(j => j.style.display = 'none') // disable grid display
         
         slider.classList.add("sliderImg"); // add classlist for slider container 
         mainPage.append(slider); // appen slider container 
-
+        
         
         sliderPrev.classList.add("prev"); // add classlist for prev button
         sliderPrev.innerHTML = "&#10094;" // add deicamlCode for prev butoon 
@@ -77,7 +76,7 @@ for (let i = 0; i < images.length; i++) {
         sliderNext.innerHTML = "&#10095;"
         sliderNext.style.color = "var(--grey-400)";
         slider.append(sliderNext);
-       
+        
         // change for better quality 
         currentImg = images[i].children[0];
         let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
@@ -90,7 +89,7 @@ for (let i = 0; i < images.length; i++) {
         
     }
     
-// slider Next
+    // slider Next
     sliderNext.addEventListener("click", function () {
         
         b = i++
@@ -101,27 +100,25 @@ for (let i = 0; i < images.length; i++) {
         slider.replaceChild(images[i],images[b]);
         console.log(images[i].children[0].src)
     })
-
-// slider Prev
+    
+    // slider Prev
     sliderPrev.addEventListener("click", function () {
         
         b = i--
         
         let currentImg = images[i].children[0];
-         test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
+        test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
         currentImg.src = test1;
         slider.replaceChild(images[i],images[b]);
-       
+        
     })
     
-
-    const image = $(".image").imagesLoaded(() => {
     
-    images[i].addEventListener("click", sliderComponent);})
- 
+    images[i].addEventListener("click", sliderComponent)  
     
 }
 
+})
 
 
 
