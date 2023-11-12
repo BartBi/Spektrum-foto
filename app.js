@@ -69,11 +69,13 @@ const image = $(".image").imagesLoaded(() => {
             a.classList.remove("show");
             a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
             if (a == e.target.parentNode) {
-                a.classList.add('show');
+                // if(a.children[0].complete){
+
+                a.classList.add("show");
+
             }
-        }
-        )
-        setInterval(viewImg,500);
+        })
+
 
         // console.log(e.target.parentNode)
 
@@ -117,8 +119,11 @@ const image = $(".image").imagesLoaded(() => {
             currentSlide = 0
         }
         images.forEach(j => j.classList.remove("show"));
-        images[currentSlide].classList.add("show");
-
+        function viewNext() {
+            if (images[currentSlide].children[0].complete)
+                images[currentSlide].classList.add("show");
+        }
+        setInterval(viewNext, 500);
     }
 
     function slidePrev() {
@@ -135,12 +140,12 @@ const image = $(".image").imagesLoaded(() => {
 
 
 
-    function viewImg(){
-     if(currentSlide.children[0].complete){
-        currentSlide.classList.add("show");
-     }
-    }
-    
+    // function viewImg(){
+    //  if(e.target.complete){
+    //     e.target.parentNode.classList.add("show");
+    //  }
+    // }
+
     images.forEach(j => j.addEventListener("click", sliderComponent));
 
     // currentSlide.addEventListener("click", sliderComponent);
