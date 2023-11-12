@@ -2,6 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
+  /* outline: 2px dotted var(--green-dark) */
 }
 
 /* fonts */
@@ -478,46 +479,75 @@ Page
   /* min-width: 1280px; */
   width: 90vw;
   max-width: 1280px;
-  margin: 0 auto 2vw auto;
-  min-height: calc(100vh - (12rem + 4rem));
+  margin: 1vh auto 1vh auto;
+  height: calc(100vh -  (2vh+ 9rem + 4rem));
   display: flex;
   flex-direction: row;
   column-gap: 10px;
-  outline:5px solid rgb(197, 231, 6);
+
 }
 
 .container {
-  /* outline: 2px solid red; */
   display: flex;
   row-gap: 10px;
   flex-direction: column;
-  min-width: 33.3%;
   padding: 0;
   max-width: 100%;
+  /* min-width: 30%; */
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+ 
+  
+}
+
+.page.slider{
+  
+  display:grid;
+  /* max-height: 50vh; */
+}
+
+.container.slider{
+  display:grid;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  /* outline: 2px solid; */
 }
 
 .image {
+  max-width: 1280px;
   background-color: black;
-  width: 100%;
   min-width: 50%;
-  min-height:300px;
+  min-height:200px;
   display: flex;
-  transition: all 2s ease-out;
   opacity: 0;
-  /* outline:4px solid red; */
+  justify-content: center;
+  /* flex-direction: column; */
+  z-index: 0;
+}
+
+.image.slider{
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  align-items: center;
+  /* outline:4px solid green; */
 }
 
 .image.show {
+  transition: all 1s ease-out;
   opacity: 1;
 }
 
 .image img {
-  width: 100%;
-  object-fit: contain;
+  border-radius: 5px;
+  display: block;
+  max-height: 36vw;
+  max-width: 100%;
+  margin:0 auto;
   object-fit:cover;
-  object-position: 50% 50%;
+  /* object-position: 50% 50%; */
   cursor: pointer;
-
 }
 
 /*
@@ -543,8 +573,8 @@ Footer
 .footer-logo {
   color: rgb(121, 116, 116);
   font-weight: bold;
-  font-size: ;
-
+  font-size: 20px;
+  
 }
 
 
@@ -583,61 +613,45 @@ Hero
 
 
 
-/*
+/* 
 =============== 
 Slider
-===============
+=============== 
+
 */
 
-.sliderImg {
-  position: relative;
-  display: block;
-  max-height: 100%;
-  /* color: var(--grey-400); */
-  /* outline:2px solid green; */
 
-}
-
-/* .sliderImg .image{
-  height: 50vh;
-  width: auto;
-} */
-
-.sliderImg .prev,.next {
-  position: absolute;
-  display: block;
-  font-weight: 100;
-  font-size: 50px;
-  user-select: none;
-  padding: 5px;
-  width:fit-content;
-  /* outline: 2px solid yellow; */
-  background-color: transparent;  
-}
-
-.sliderImg:hover{
-  color: white;
+.slider-button-prev,
+.slider-button-next {
+  /* outline: 1px solid yellow; */
+  margin: 0;
   cursor: pointer;
+  z-index: 2;
+  background: rgba(0,0,0,0.1);
+  border:0;
+  text-indent:-999px;
+  overflow:hidden;
+  position: relative;
+  z-index: 1;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.slider-button-prev {
+  grid-column: -2 / -1;
+  grid-row: 1 / 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-chevron-left' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'%3E%3C/path%3E%3C/svg%3E");
+}
+.slider-button-next {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'%3E%3C/path%3E%3C/svg%3E");
+
 }
 
-.next {
-  right:-5%;
-  top:50%;
-  transform: translateY(-50%);
-  transition: 0.25s linear all;
-}
-
-
-
-.prev {
-  top:50%;
-  /* outline: 2px solid red; */
-  left: -5%;
-  transform: translateY(-50%);
-  color: var(--grey-500);
-  transition: 0.25s linear all;
-}
-
-.prev,.next:hover{
-  color: white;
+.slider-button-prev:focus,
+.slider-button-next:focus {
+    outline: none;
 }

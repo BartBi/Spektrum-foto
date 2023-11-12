@@ -13,125 +13,143 @@ const date = document.getElementById("date");
 const currentYear = new Date().getFullYear();
 date.innerHTML = currentYear;
 
+
+
+
 // Select div containers for image
 let images = document.querySelectorAll(".image");
 
+//  Make an array from array of nodes
+images = [...images];
 
 // Images load plugin (with QueryJs) => Intersection observer 
 const image = $(".image").imagesLoaded(() => {
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        entry.target.classList.toggle("show", entry.isIntersecting);
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle("show", entry.isIntersecting);
 
-        if (entry.isIntersecting) {
-            observer.unobserve(entry.target)
+            if (entry.isIntersecting) {
+                observer.unobserve(entry.target)
+            }
+        });
+    },
+        {
+
+            threshold: 0,
+            rootMargin: '0px',
         }
+    );
+
+    images.forEach(image => {
+        observer.observe(image);
     });
-},
-    {
-        
-        threshold: 0,
-        rootMargin: '0px',
+
+
+    //container selected (each islotated column of grid)
+    let page = document.querySelectorAll(".container");
+
+    // page selected - container for whole grid
+    let mainPage = document.querySelector(".page");
+
+    //  literally img by type selected 
+    let img = document.querySelectorAll('img');
+
+
+
+    // Slider component 
+    function sliderComponent(e) {
+
+        // let largeSizeView = images[currentSlide].children[0].src.replace(/gallery\W/, "gallery2/");
+
+        images.forEach(image => {
+            observer.unobserve(image);
+        });
+
+        images.forEach(a => {
+            a.classList.remove("show");
+            a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
+            if (a == e.target.parentNode) {
+                a.classList.add('show');
+            }
+        }
+        )
+        setInterval(viewImg,500);
+
+        // console.log(e.target.parentNode)
+
+        currentSlide = Math.max(0, images.findIndex(el => el.classList.contains("show")));
+
+        // e.target.classList.add("show");
+
+        // const test = e.target ; 
+        // images[currentSlide].classList.add("show");
+
+
+        mainPage.classList.add("slider");
+        page.forEach((j) =>
+            j.classList.add("slider"));
+
+        images.forEach(j => j.classList.add("slider"));
+
+        btnPrev = document.createElement("button");
+        btnPrev.type = "button";
+        btnPrev.innerText = "Poprzedni slajd";
+        btnPrev.classList.add("slider-button", "slider-button-prev");
+        btnPrev.addEventListener("click", slidePrev)
+
+        btnNext = document.createElement("button");
+        btnNext.type = "button";
+        btnNext.innerText = "Następny slajd"
+        btnNext.classList.add("slider-button", "slider-button-next");
+        btnNext.addEventListener("click", slideNext)
+
+        mainPage.append(btnPrev);
+        mainPage.append(btnNext);
+
+        console.log(currentSlide);
+        //remove add event lister for image click
+        images.forEach(j => j.removeEventListener("click", sliderComponent));
     }
-);
 
-images.forEach(image => {
-    observer.observe(image);
-});
+    function slideNext() {
+        currentSlide++
+        if (currentSlide >= images.length) {
+            currentSlide = 0
+        }
+        images.forEach(j => j.classList.remove("show"));
+        images[currentSlide].classList.add("show");
 
-//container selected (each islotated column of grid)
-let page = document.querySelectorAll(".container");
+    }
 
-// page selected - container for whole grid
-let mainPage = document.querySelector(".page");
+    function slidePrev() {
+        currentSlide--
+        if (currentSlide < 0) {
+            currentSlide = images.length - 1;
+        }
+        images.forEach(j => j.classList.remove("show"));
+        images[currentSlide].classList.add("show");
 
-//  literally img by type selected 
-let img = document.querySelectorAll('img');
+    }
 
 
-for (let i = 0; i < images.length; i++) {
-    
-    let currentImg;
-    let sliderPrev;
-    let sliderNext;
-    sliderNext = document.createElement("a"); // create prev button container
-    let slider = document.createElement("div"); // create slider container
-    sliderPrev = document.createElement("a"); // create prev button container
-    
+
+
+
     function viewImg(){
-     if(images[i].children[0].complete){
-        images[i].classList.add("show");
+     if(currentSlide.children[0].complete){
+        currentSlide.classList.add("show");
      }
     }
     
-    function sliderComponent(e) {
-        images.forEach(a => {
-            if(a.classList !== "image show"){
-            a.classList.add("show");
-        }})
-        page.forEach(j => j.style.display = 'none') // disable grid display
-        
-        images[i].classList.remove('show');
-        
-        slider.classList.add("sliderImg"); // add classlist for slider container 
-        mainPage.append(slider); // appen slider container     
-        
-        sliderPrev.classList.add("prev"); // add classlist for prev button
-        sliderPrev.innerHTML = "&#10094;" // add deicamlCode for prev butoon 
-        sliderPrev.style.color = "var(--grey-400)";
-        sliderPrev.style.color
-        slider.append(sliderPrev); // append prevbutton
-        slider.append(images[i]); // append current image container
-        
-        sliderNext.classList.add("next"); // add classlist for prev button
-        sliderNext.innerHTML = "&#10095;"
-        sliderNext.style.color = "var(--grey-400)";
-        slider.append(sliderNext);
-        
-        // change for better quality 
-        currentImg = images[i].children[0];
-        let test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
-        currentImg.src = test1;
-        
-        setInterval(viewImg,500);
-        
-        //remove add event lister for image click
-        images[i].removeEventListener("click", sliderComponent);
-        //change current image 
-        
-    }
-    images[i].classList.remove('show');
+    images.forEach(j => j.addEventListener("click", sliderComponent));
 
-    // slider Next
-    sliderNext.addEventListener("click", function () {
-        
-        i++
-        let currentImg = images[i].children[0];
-        test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
-        currentImg.src = test1;
-        slider.children[1] = images[i];
-        currentImg.src = test1;
-        images[i].classList.remove('show');
-        setInterval(viewImg,500);
-        
-    })
-    
-    // slider Prev
-    sliderPrev.addEventListener("click", function () {
-        
-        b = i--
-        
-        let currentImg = images[i].children[0];
-        test1 = currentImg.src.replace(/gallery\W/, "gallery2/");
-        currentImg.src = test1;
-        slider.replaceChild(images[i],images[b]);
-        
-    })
-    
-    
-    images[i].addEventListener("click", sliderComponent)  
-    
-}
+    // currentSlide.addEventListener("click", sliderComponent);
+
+
+
+
+
+
 
 })
 
