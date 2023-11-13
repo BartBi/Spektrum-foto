@@ -532,10 +532,11 @@ Page
   grid-row: 1 / -1;
   align-items: center;
   /* outline:4px solid green; */
+  
 }
 
 .image.show {
-  transition: all 1s ease-out;
+  /* transition: all 0.5s ease-out; */
   opacity: 1;
 }
 
@@ -548,6 +549,7 @@ Page
   object-fit:cover;
   /* object-position: 50% 50%; */
   cursor: pointer;
+  opacity:1;
 }
 
 /*

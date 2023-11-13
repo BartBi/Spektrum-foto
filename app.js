@@ -54,7 +54,8 @@ const image = $(".image").imagesLoaded(() => {
     //  literally img by type selected 
     let img = document.querySelectorAll('img');
 
-
+    let imgShow = document.querySelectorAll('show');
+    console.log(imgShow);
 
     // Slider component 
     function sliderComponent(e) {
@@ -64,28 +65,27 @@ const image = $(".image").imagesLoaded(() => {
         images.forEach(image => {
             observer.unobserve(image);
         });
-
         images.forEach(a => {
             a.classList.remove("show");
             a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
+            
             if (a == e.target.parentNode) {
-                // if(a.children[0].complete){
-
+                a.style.opacity = "0";
                 a.classList.add("show");
-
+                setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" }},500);    
             }
         })
 
 
         // console.log(e.target.parentNode)
 
-        currentSlide = Math.max(0, images.findIndex(el => el.classList.contains("show")));
 
         // e.target.classList.add("show");
 
         // const test = e.target ; 
         // images[currentSlide].classList.add("show");
 
+        currentSlide = Math.max(0, images.findIndex(el => el.classList.contains("show")));
 
         mainPage.classList.add("slider");
         page.forEach((j) =>
@@ -111,19 +111,18 @@ const image = $(".image").imagesLoaded(() => {
         console.log(currentSlide);
         //remove add event lister for image click
         images.forEach(j => j.removeEventListener("click", sliderComponent));
+
     }
 
+
     function slideNext() {
+        console.log(images[currentSlide].children[0].complete);
         currentSlide++
         if (currentSlide >= images.length) {
             currentSlide = 0
         }
         images.forEach(j => j.classList.remove("show"));
-        function viewNext() {
-            if (images[currentSlide].children[0].complete)
-                images[currentSlide].classList.add("show");
-        }
-        setInterval(viewNext, 500);
+        images[currentSlide].classList.add("show")
     }
 
     function slidePrev() {
@@ -132,17 +131,17 @@ const image = $(".image").imagesLoaded(() => {
             currentSlide = images.length - 1;
         }
         images.forEach(j => j.classList.remove("show"));
-        images[currentSlide].classList.add("show");
-
+        images[currentSlide].classList.add("show")
     }
 
 
 
+    // setInterval(viewImg1,500);
 
 
-    // function viewImg(){
     //  if(e.target.complete){
     //     e.target.parentNode.classList.add("show");
+    // function viewImg(){
     //  }
     // }
 
