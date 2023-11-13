@@ -54,8 +54,7 @@ const image = $(".image").imagesLoaded(() => {
     //  literally img by type selected 
     let img = document.querySelectorAll('img');
 
-    let imgShow = document.querySelectorAll('show');
-    console.log(imgShow);
+  
 
 
     // Slider component 
@@ -77,9 +76,9 @@ const image = $(".image").imagesLoaded(() => {
                 //     setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" ;
                 // a.style.transition = "all 0.5s ease-out"}},500);    
                 // Test for imgComplete 
-                console.log(a.children[0].complete)
                 // a.classList.add("show");
                 function test() {
+                    console.log(e.target)
                     if (e.target.complete) {
                         e.target.parentNode.classList.add("show")
                         console.log(e.target.complete)
@@ -124,7 +123,7 @@ const image = $(".image").imagesLoaded(() => {
         mainPage.append(btnPrev);
         mainPage.append(btnNext);
 
-        console.log(currentSlide);
+        // console.log(currentSlide);
         //remove add event lister for image click
         images.forEach(j => j.removeEventListener("click", sliderComponent));
 

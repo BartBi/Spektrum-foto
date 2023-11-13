@@ -2,7 +2,7 @@
 ::after,
 ::before {
   box-sizing: border-box;
-  /* outline: 2px dotted var(--green-dark) */
+  outline: 2px dotted var(--green-dark)
 }
 
 /* fonts */
@@ -536,20 +536,21 @@ Page
 }
 
 .image.show {
-  transition: all 0.2s ease-out;
+  transition: all 0.6s ease-out;
   opacity: 1;
 }
 
 .image img {
   border-radius: 5px;
   display: block;
-  max-height: 36vw;
+  /* max-height: 36vw; */
   max-width: 100%;
   margin:0 auto;
   object-fit:cover;
   /* object-position: 50% 50%; */
   cursor: pointer;
   opacity:1;
+  object-fit: cover;
 }
 
 /*
