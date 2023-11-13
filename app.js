@@ -57,11 +57,11 @@ const image = $(".image").imagesLoaded(() => {
     let imgShow = document.querySelectorAll('show');
     console.log(imgShow);
 
+    
     // Slider component 
     function sliderComponent(e) {
-
+        
         // let largeSizeView = images[currentSlide].children[0].src.replace(/gallery\W/, "gallery2/");
-
         images.forEach(image => {
             observer.unobserve(image);
         });
@@ -70,13 +70,25 @@ const image = $(".image").imagesLoaded(() => {
             a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
             
             if (a == e.target.parentNode) {
-                a.style.transition = "none";
-                a.style.opacity = "0";
-                a.classList.add("show");
-                setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" ;
-            a.style.transition = "all 0.5s ease-out"}},500);    
-            }
-        })
+                //     a.style.transition = "none";
+                //     a.style.opacity = "0";
+                //     a.classList.add("show");
+                //     
+                //     setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" ;
+                // a.style.transition = "all 0.5s ease-out"}},500);    
+                // Test for imgComplete 
+                console.log(a.children[0].complete)
+                // a.classList.add("show");
+                function test(){ 
+                    if(a.children[0].complete){
+                        a.classList.add("show")
+                console.log(a.children[0].complete)
+            clearInterval(imgViewInterval)}
+        } ; 
+                 let imgViewInterval  = setInterval(test,1000);
+                
+            
+        }})
 
 
         // console.log(e.target.parentNode)
