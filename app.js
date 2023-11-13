@@ -70,9 +70,11 @@ const image = $(".image").imagesLoaded(() => {
             a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
             
             if (a == e.target.parentNode) {
+                a.style.transition = "none";
                 a.style.opacity = "0";
                 a.classList.add("show");
-                setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" }},500);    
+                setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" ;
+            a.style.transition = "all 0.5s ease-out"}},500);    
             }
         })
 
@@ -116,7 +118,6 @@ const image = $(".image").imagesLoaded(() => {
 
 
     function slideNext() {
-        console.log(images[currentSlide].children[0].complete);
         currentSlide++
         if (currentSlide >= images.length) {
             currentSlide = 0
