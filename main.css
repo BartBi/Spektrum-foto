@@ -553,6 +553,10 @@ Page
   object-fit: cover;
 }
 
+.image.slider img{
+  max-height: 35vw;
+}
+
 /*
 =============== 
 Footer 
