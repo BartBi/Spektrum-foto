@@ -66,17 +66,10 @@ const image = $(".image").imagesLoaded(() => {
         });
         images.forEach(a => {
             a.classList.remove("show");
-            a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
-
+            
             if (a == e.target.parentNode) {
-                //     a.style.transition = "none";
-                //     a.style.opacity = "0";
-                //     a.classList.add("show");
-                //     
-                //     setInterval(function test(){if(a.children[0].complete){a.style.opacity = "1" ;
-                // a.style.transition = "all 0.5s ease-out"}},500);    
-                // Test for imgComplete 
-                // a.classList.add("show");
+                
+                a.children[0].src = a.children[0].src.replace(/gallery\W/, "gallery2/");
                 function test() {
                     console.log(e.target)
                     if (e.target.complete) {
