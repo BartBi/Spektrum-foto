@@ -78,7 +78,7 @@ function sliderComponent(e) {
                     }
                     currentSlide = Math.max(0, images.findIndex(el => el.classList.contains("show")));                    
                 };
-                imgViewInterval = setInterval(test, 200);
+                imgViewInterval = setInterval(test, 13);
                 
         }
     })
@@ -144,7 +144,7 @@ function sliderComponent(e) {
             images[currentSlide].children[0].src = images[currentSlide].children[0].src.replace(/gallery\W/, "gallery2/");   
         }
       
-      imgViewInterval = setInterval(testForNextPrev, 200);
+      imgViewInterval = setInterval(testForNextPrev, 13);
     }
 
     function slidePrev() {
@@ -156,7 +156,7 @@ function sliderComponent(e) {
         if (images[currentSlide].children[0].src !== images[currentSlide].children[0].src.replace(/gallery\W/, "gallery2/")){
             images[currentSlide].children[0].src = images[currentSlide].children[0].src.replace(/gallery\W/, "gallery2/");   
         }
-        imgViewInterval = setInterval(testForNextPrev, 200);
+        imgViewInterval = setInterval(testForNextPrev, 13);
     }
 
 
