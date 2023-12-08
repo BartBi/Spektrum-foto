@@ -425,6 +425,7 @@ Slider
   .cls-1 {
     height: 100%;
     transition: 0.2s linear all;
+    outline:2px solid red;
   }
 
   svg:hover .cls-1 {
@@ -514,8 +515,6 @@ Slider
     display: flex;
     flex-direction: row;
     column-gap: 10px;
-/* outline: 2px solid var(--green-light); */
-
   }
 
   .container {
