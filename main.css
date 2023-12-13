@@ -425,7 +425,6 @@ Slider
     align-items: center;
     font-weight: 300;
     font-size: 1.2rem;
-    
     height: 100%;
     padding: 0 2.5rem;
     border-top: none;  
@@ -531,9 +530,8 @@ Slider
     min-width: 30%;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    margin: 0 auto;
+    margin: 20px auto;
     width: 100%;
-    /* outline:5px solid blueviolet; */
   }
 
   svg,
