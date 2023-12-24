@@ -103,13 +103,13 @@ function sliderComponent(e) {
     
     btnPrev = document.createElement("button");
     btnPrev.type = "button";
-        btnPrev.innerText = "Poprzedni slajd";
+        // btnPrev.innerText = "Poprzedni slajd";
         btnPrev.classList.add("slider-button", "slider-button-prev");
         btnPrev.addEventListener("click", slidePrev)
         
         btnNext = document.createElement("button");
         btnNext.type = "button";
-        btnNext.innerText = "Następny slajd"
+        // btnNext.innerText = "Następny slajd"
         btnNext.classList.add("slider-button", "slider-button-next");
         btnNext.addEventListener("click", slideNext)
         
