@@ -285,12 +285,13 @@ Footer
 */
 
 .page-footer {
-  height: 4rem;
+  height: 2rem;
   background-color: var(--black);
   display: flex;
-  color: var(--white);
+  color: rgba(255, 255, 255, 0.7);
   justify-content: center;
   align-items: center;
+  font-size: 0.7rem;
 }
 
 .page-footer p {
@@ -299,10 +300,8 @@ Footer
 
 .page-footer a,
 .footer-logo {
-  color: rgb(121, 116, 116);
-  font-weight: bold;
-  font-size: 20px;
-
+  color: rgba(255, 255, 255, 0.7);
+  /* font-size: 0.7rem; */
 }
 
 
@@ -467,7 +466,7 @@ Slider
     width: 90vw;
     max-width: 1280px;
     margin: 1vh auto 1vh auto;
-    height: calc(100vh - (2vh+ 9rem + 4rem));
+    height: calc(100vh - (2vh+ 9rem + 2rem));
     display: flex;
     flex-direction: row;
     column-gap: 10px;
@@ -562,7 +561,15 @@ Slider
     color: var(--white);
     justify-content: center;
     align-items: center;
-    font-size: 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .page-footer .footer-logo {
+    font-size: 0.7rem;
+  }
+
+  .page-footer a {
+    font-size: 0.7rem;
   }
 
 
@@ -571,18 +578,18 @@ Slider
     max-height: 90vh;
   }
 
-   .container.slider {
+  .container.slider {
     display: grid;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    justify-content:flex-start;
+    justify-content: flex-start;
     max-height: 100%;
     max-width: none;
     width: 100vw;
   }
-  
+
   .image {
     max-width: 1280px;
     background-color: black;
@@ -593,63 +600,63 @@ Slider
     justify-content: center;
     z-index: 0;
   }
-  
-  
-  
+
+
+
   .image.slider {
     max-height: 100%;
-
     grid-column: 1 / -1;
     grid-row: 1 / -1;
     align-items: center;
   }
-  
-  
-
-.slider-button-prev,
-
-.slider-button-next {
-  margin: 0;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.1);
-  border: 0;
-  overflow: hidden;
-  position: relative;
-  background-size: 30px;
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
-  background-color: transparent;
-}
 
 
 
-.slider-button-prev {
-  grid-column: -2 / -1;
-  grid-row: 1 / 2;
-  width: 50px;
-  left:50px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-chevron-left' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'%3E%3C/path%3E%3C/svg%3E");
-  
-}
+  .slider-button-prev,
+
+  .slider-button-next {
+    margin: 0;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
+    border: 0;
+    overflow: hidden;
+    position: relative;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    background-color: transparent;
+
+  }
 
 
-.slider-button-next {
-  grid-column: 2 / 3;
-  right:50px;
-  grid-row: 1 / 2;
-  width: 50px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='white' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'%3E%3C/path%3E%3C/svg%3E");
-}
+
+  .slider-button-prev {
+    grid-column: -2 / -1;
+    grid-row: 1 / 2;
+    width: 50px;
+    left: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-chevron-left' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'%3E%3C/path%3E%3C/svg%3E");
+
+  }
+
+
+  .slider-button-next {
+    grid-column: 2 / 3;
+    right: 50px;
+    grid-row: 1 / 2;
+    width: 50px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='white' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'%3E%3C/path%3E%3C/svg%3E");
+  }
 
 
 
-.slider-button-prev:focus,
+  .slider-button-prev:focus,
 
-.slider-button-next:focus {
+  .slider-button-next:focus {
 
-  outline: none;
+    outline: none;
 
-}
+  }
 
 }
