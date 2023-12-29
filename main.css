@@ -186,8 +186,8 @@ Navbar
   margin-bottom: 10px;
   z-index: 99;
 
-}
 
+}
 
 
 
@@ -202,9 +202,9 @@ Navbar
   transition: 0.25s linear all;
   height: auto;
 
-}
 
-.nav-link i {
+}
+  .nav-link i {
   font-size: 1.5rem;
   color: white;
   height: 0px;
@@ -341,7 +341,7 @@ Slider
   grid-row: 1 / 2;
   width: 50px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' fill='white' class='bi bi-chevron-right' viewBox='0 0 16 16'%3E  %3Cpath fill-rule='evenodd' d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'%3E%3C/path%3E%3C/svg%3E");
-
+  
 }
 
 .slider-button-prev:focus,
@@ -349,6 +349,19 @@ Slider
   outline: none;
 }
 
+.about,.contact{
+/* outline: 2px solid red; */
+display: block;
+width: 1280px;
+margin:0 auto;
+margin-bottom: calc(100vh - 12rem - 30rem);
+color: var(--grey-400); 
+height: 30rem;
+padding: 20px 20px 0px 20px;
+text-align: center;
+font-size: 1.3rem;
+text-align: justify;
+}
 
 
 /*
